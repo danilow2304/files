@@ -1,0 +1,44 @@
+### GET all
+GET http://localhost:3000/api/books
+
+### GET all filtered by genre
+GET http://localhost:3000/api/books?genre=Dystopian
+
+### GET one
+GET http://localhost:3000/api/books/1
+
+### GET one (not found, expect 404)
+GET http://localhost:3000/api/books/999
+
+### POST (expect 201)
+POST http://localhost:3000/api/books
+Content-Type: application/json
+
+{
+  "title": "Kindred",
+  "author": "Octavia Butler",
+  "year": 1979,
+  "genre": "Science Fiction"
+}
+
+### POST invalid (expect 400)
+POST http://localhost:3000/api/books
+Content-Type: application/json
+
+{
+  "title": ""
+}
+
+### PUT (expect 200)
+PUT http://localhost:3000/api/books/1
+Content-Type: application/json
+
+{
+  "title": "Things Fall Apart (Updated)",
+  "author": "Chinua Achebe",
+  "year": 1958,
+  "genre": "Classic"
+}
+
+### DELETE (expect 200)
+DELETE http://localhost:3000/api/books/2
